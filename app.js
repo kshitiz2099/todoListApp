@@ -10,9 +10,12 @@ app.use(express.static(__dirname+'/public'));
 app.use(express.static(__dirname+'/views'));
 app.set("view engine", "ejs");
 
+//Static Page
 app.get('/', function(req, res){
     res.sendFile('index.html')
 })
+
+//Api Routes
 app.use("/api/todos", todoRoutes);
 
 app.listen(process.env.PORT|| 3000, function(){
