@@ -1,3 +1,5 @@
+//Helper code for accessing the database
+
 var db=require('../models');
 
 //Get all the data
