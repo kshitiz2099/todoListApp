@@ -1,5 +1,6 @@
 var db=require('../models');
 
+//Get all the data
 exports.getTodos=function(req, res){
     db.Todo.find()
     .then(function(todos){
@@ -10,6 +11,7 @@ exports.getTodos=function(req, res){
     })
 }
 
+//Create a new item in db
 exports.createTodo=function(req, res){
     db.Todo.create(req.body)
     .then(function(newTodo){
@@ -20,6 +22,7 @@ exports.createTodo=function(req, res){
     })
 }
 
+//Update an item in db
 exports.updateTodo=function(req, res){
     db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
     .then(function(todo){
@@ -30,6 +33,7 @@ exports.updateTodo=function(req, res){
     })
 }
 
+//Find a particular item in db
 exports.getTodo=function(req,res){
     db.Todo.findById(req.params.todoId)
     .then(function(todo){
@@ -40,6 +44,7 @@ exports.getTodo=function(req,res){
     })
 }
 
+//Delete an item
 exports.deleteTodo=function(req, res){
     db.Todo.remove({_id: req.params.todoId})
     .then(function(){
